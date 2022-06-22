@@ -141,7 +141,7 @@ This means that your node cannot connect to peers. For a list of current peers a
 
 If your node has synced then the sync status should change to catching_up=false
 
-After synchronization, you must request tokens to create a validator. Since at the time of writing this guide (06/22/2022) the faucet is not working, you must request tokens in the project's telegram group. To find out the address of your wallet if you forgot it, you can use this command:
+After synchronization, you must request tokens to create a validator. If faucet not working, you must request tokens in the project's telegram group. To find out the address of your wallet if you forgot it, you can use this command:
 ```shell
 $TIKER keys list
 ```
@@ -155,7 +155,7 @@ if the tokens came to your wallet, then you can proceed to the next step
 ### Creating validator:
 To create a validator, you need to run this command:
 ```shell
-$TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$ADDRESS --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS  -y
+$TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$ADDRESS --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS --node "tcp://testnet.palomaswap.com:26657" -y
 ```
 # Useful commands:
 ### Check logs:
