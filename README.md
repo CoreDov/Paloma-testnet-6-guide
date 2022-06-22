@@ -3,7 +3,7 @@
 
 CPU	4 theads
 
-RAM	8GB
+RAM	16GB
 
 Storage	SSD 200GB
 
