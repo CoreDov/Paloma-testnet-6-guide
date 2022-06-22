@@ -72,6 +72,14 @@ $TIKER keys add $WALLET
 #or if you want to recover existing wallet from mnemonic:
 $TIKER keys add $WALLET --recover
 ```
+### Saving variables:
+```shell
+VALOPER=$($TIKER keys show $WALLET --bech val -a)
+ADDRESS=$($TIKER keys show $WALLET --address)
+echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile
+echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
 ### Downloading genesis and adddrbook:
 ```shell
 cd $HOME/$CONFIG/config
@@ -107,7 +115,6 @@ sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persisten
 sudo systemctl daemon-reload
 sudo systemctl enable $TIKER
 sudo systemctl restart $TIKER
-ADDRESS="$(palomad keys show "$VALIDATOR" -a)"
 
 #check logs:
 sudo journalctl -u $TIKER -f -o cat
