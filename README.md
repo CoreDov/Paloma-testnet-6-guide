@@ -66,7 +66,6 @@ $TIKER config node $NODE
 ### Creating wallet:
 ```shell
 $TIKER keys add $WALLET
-
 #and save your mnemonic on your pc!!!
 
 #or if you want to recover existing wallet from mnemonic:
