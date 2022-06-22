@@ -113,8 +113,42 @@ ADDRESS="$(palomad keys show "$VALIDATOR" -a)"
 sudo journalctl -u $TIKER -f -o cat
 ```
 # Creating validator:
+after you have started the node you must wait until it synchronizes with the network. You can check the synchronization status with this command:
+```shell
+curl -s $NODE/status | jq .result.sync_info.catching_up
+```
+if catching_up=true, your node is still syncing. Usually synchronization takes 5-10 minutes. If during this time it has not been synchronized, then you need to check the logs to understand what the problem is. You can check the logs by issuing this command:
+```shell
+journalctl -u $TIKER -f -o cat
+```
+if something like this happens in the logs:
+```shell
+6:19PM ERR Failed to reconnect to peer. Beginning exponential backoff 
+addr={"id":"8980faac5295875a5ecd987a99392b9da56c9848","ip":"85.10.216.151","port":26656} 
+elapsed=193577.896484 module=p2p
+6:14PM INF Dialing peer address={"id":"111ba4e5ae97d5f294294ea6ca03c17506465ec5","ip":"208.68.39.221",
+"port":26656} module=p2p
+6:14PM INF Error reconnecting to peer. Trying again addr={"id":"111ba4e5ae97d5f294294ea6ca03c17506465ec5",
+"ip":"208.68.39.221","port":26656} err="dial tcp 208.68.39.221:26656: i/o timeout" module=p2p tries=17
+```
+This means that your node cannot connect to peers. For a list of current peers and address books, you can contact the official channel of the project.
+
+If your node has synced then the sync status should change to catching_up=false
+
+After synchronization, you must request tokens to create a validator. Since at the time of writing this guide (06/22/2022) the faucet is not working, you must request tokens in the project's telegram group. To find out the address of your wallet if you forgot it, you can use this command:
+```shell
+$TIKER keys list
+```
+If the faucet is currently running, then tokens can be requested on the website https://faucet.palomaswap.com/
+
+You can check the availability of tokens on the wallet with this command:
+```shell
+$TIKER q bank balances $ADDRESS
+```
+if the tokens came to your wallet, then you can proceed to the next step
 ### Creating validator:
+To create a validator, you need to run this command:
 ```shell
 $TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$WALLET --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS -y
 ```
-/////GUIDE STILL IN WRITING PROCESS. NEXT UPDATE IN 8:00 AM PT/////
+# ////////GUIDE STILL IN TESTING PROCESS////////
