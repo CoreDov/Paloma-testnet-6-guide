@@ -155,6 +155,43 @@ if the tokens came to your wallet, then you can proceed to the next step
 ### Creating validator:
 To create a validator, you need to run this command:
 ```shell
-$TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$WALLET --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS -y
+$TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$ADDRESS --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS  -y
+```
+# Useful commands:
+### Check logs:
+```shell
+journalctl -u $TIKER -f -o cat
+```
+### Service status:
+```shell
+systemctl status $TIKER
+```
+### Node status:
+```shell
+curl -s $NODE/status
+```
+### Sync status
+```shell
+curl -s $NODE/status | jq .result.sync_info.catching_up
+```
+### Check connected peers:
+```shell
+curl -s $NODE/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr | split(":")[2])"' | wc -l
+```
+### Check validator address:
+```shell
+echo $VALOPER
+```
+### Check all wallets:
+```shell
+$TIKER keys list
+```
+### Check wallet balance:
+```shell
+$TIKER q bank balances $ADDRESS
+```
+### Unjail:
+```shell
+$TIKER tx slashing unjail --from $WALLET --fees 5000$TOKEN
 ```
 # ////////GUIDE STILL IN TESTING PROCESS////////
