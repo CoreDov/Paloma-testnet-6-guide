@@ -194,4 +194,15 @@ $TIKER q bank balances $ADDRESS
 ```shell
 $TIKER tx slashing unjail --from $WALLET --fees 5000$TOKEN
 ```
-# ////////GUIDE STILL IN TESTING PROCESS////////
+### Delegate:
+```shell
+$TIKER tx staking delegate $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+```
+### Undelegate:
+```shell
+$TIKER tx staking unbond $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+```
+### Send tokens
+```shell
+$TIKER tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
+```
