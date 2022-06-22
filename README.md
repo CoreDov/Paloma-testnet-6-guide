@@ -162,10 +162,6 @@ $TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tende
 ```shell
 journalctl -u $TIKER -f -o cat
 ```
-### Service status:
-```shell
-systemctl status $TIKER
-```
 ### Node status:
 ```shell
 curl -s $NODE/status
@@ -174,10 +170,6 @@ curl -s $NODE/status
 ```shell
 curl -s $NODE/status | jq .result.sync_info.catching_up
 ```
-### Check connected peers:
-```shell
-curl -s $NODE/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr | split(":")[2])"' | wc -l
-```
 ### Check validator address:
 ```shell
 echo $VALOPER
@@ -185,6 +177,10 @@ echo $VALOPER
 ### Check all wallets:
 ```shell
 $TIKER keys list
+```
+### Send tokens
+```shell
+$TIKER tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
 ```
 ### Check wallet balance:
 ```shell
@@ -201,8 +197,4 @@ $TIKER tx staking delegate $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5
 ### Undelegate:
 ```shell
 $TIKER tx staking unbond $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
-```
-### Send tokens
-```shell
-$TIKER tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
 ```
