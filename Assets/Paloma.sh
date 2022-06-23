@@ -1,1 +1,2 @@
-echo apt update
+apt update
+apt upgrade
