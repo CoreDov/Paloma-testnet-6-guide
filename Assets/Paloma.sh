@@ -1,19 +1,16 @@
-echo -e '╔══╗╔══╗╔═══╗╔═══╗╔══╗─╔══╗╔╗╔╗' && sleep 0.5
-echo -e '║╔═╝║╔╗║║╔═╗║║╔══╝║╔╗╚╗║╔╗║║║║║' && sleep 0.5
-echo -e '║║──║║║║║╚═╝║║╚══╗║║╚╗║║║║║║║║║' && sleep 0.5
-echo -e '║║──║║║║║╔╗╔╝║╔══╝║║─║║║║║║║╚╝║' && sleep 0.5
-echo -e '║╚═╗║╚╝║║║║║─║╚══╗║╚═╝║║╚╝║╚╗╔╝' && sleep 0.5
-echo -e '╚══╝╚══╝╚╝╚╝─╚═══╝╚═══╝╚══╝─╚╝' && sleep 0.5
+echo -e '╔══╗╔══╗╔═══╗╔═══╗╔══╗─╔══╗╔╗╔╗' && sleep 0.15
+echo -e '║╔═╝║╔╗║║╔═╗║║╔══╝║╔╗╚╗║╔╗║║║║║' && sleep 0.15
+echo -e '║║──║║║║║╚═╝║║╚══╗║║╚╗║║║║║║║║║' && sleep 0.15
+echo -e '║║──║║║║║╔╗╔╝║╔══╝║║─║║║║║║║╚╝║' && sleep 0.15
+echo -e '║╚═╗║╚╝║║║║║─║╚══╗║╚═╝║║╚╝║╚╗╔╝' && sleep 0.15
+echo -e '╚══╝╚══╝╚╝╚╝─╚═══╝╚═══╝╚══╝─╚╝' && sleep 0.15
 echo -e ''
 echo -e 'Paloma node auto installer by CoreDov (Boroda Validator) Version 0.2.4' && sleep 3
 echo -e '\n\e[42mUpdating all packages...\e[0m\n' && sleep 1
 sudo apt update && sudo apt upgrade -y
 echo -e '\n\e[42mInstalling Important packages...\e[0m\n' && sleep 1
 apt install jq -y
-apt install tar -y
-apt install source -y
-apt install tee -y 
-apt install sed -y 
+
 read -p "Enter your node name: " MONIKER
 read -p "Enter your wallet name: " WALLET
 read -p "Enter website that will be displayed on the validator page in the explorer(optional): " WEBSITE
@@ -51,7 +48,10 @@ $TIKER init $MONIKER --chain-id $CHAIN
 $TIKER config chain-id $CHAIN
 $TIKER config keyring-backend test
 $TIKER config node $NODE
+
+echo -e '\n\e[41m//////SAVE MNEMONIC OF YOUR WALLET//////\e[0m\n' && sleep 1
 $TIKER keys add $WALLET
+echo -e '\n\e[41m////////////////////////////////////////\e[0m\n' && sleep 5
 
 VALOPER=$($TIKER keys show $WALLET --bech val -a)
 ADDRESS=$($TIKER keys show $WALLET --address)
@@ -88,7 +88,9 @@ sudo systemctl restart $TIKER
 echo -e '\n\e[42mChecking node status...\e[0m\n' && sleep 1
 if [[ `service palomad status | grep active` =~ "running" ]]; then
   echo -e "Your Paloma node \e[32minstalled and works\e[39m!"
-  echo -e "You can check node status by the command \e[7mservice palomad status\e[0m"
+  echo -e "You can check node sync status by the command \e[7curl -s $NODE/status | jq .result.sync_info.catching_up\e[0m"
+  echo -e "You can check node logs by the command \e[7journalctl -u palomad -f -o cat\e[0m"
+  echo -e "You can check node status by the command \e[7service palomad status\e[0m"
   echo -e "Press \e[7mQ\e[0m for exit from status menu"
 else
   echo -e "Your Paloma node \e[31mwas not installed correctly\e[39m, please reinstall."
