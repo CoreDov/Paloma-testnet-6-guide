@@ -9,6 +9,13 @@ Storage	SSD 200GB
 
 Bandwidth: 1 Gbps for Download/100 Mbps for Upload
 
+# "One line" instalation (For beginers):
+if you want to install node by one command, you can use it:
+```shell
+wget -q -O Paloma.sh https://raw.githubusercontent.com/CoreDov/Paloma-testnet-5-guide/main/Assets/Paloma.sh && chmod +x Paloma.sh && sudo /bin/bash Paloma.sh
+```
+When the installation is completed, you can proceed to the stage of creating a validator
+# Manual instalation (For experienced noderunners):
 ## Preparing ot instalation:
 ### update all packages:
 ```shell
