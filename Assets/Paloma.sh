@@ -1,5 +1,19 @@
+echo -e '╔══╗╔══╗╔═══╗╔═══╗╔══╗─╔══╗╔╗╔╗' && sleep 0.5
+echo -e '║╔═╝║╔╗║║╔═╗║║╔══╝║╔╗╚╗║╔╗║║║║║' && sleep 0.5
+echo -e '║║──║║║║║╚═╝║║╚══╗║║╚╗║║║║║║║║║' && sleep 0.5
+echo -e '║║──║║║║║╔╗╔╝║╔══╝║║─║║║║║║║╚╝║' && sleep 0.5
+echo -e '║╚═╗║╚╝║║║║║─║╚══╗║╚═╝║║╚╝║╚╗╔╝' && sleep 0.5
+echo -e '╚══╝╚══╝╚╝╚╝─╚═══╝╚═══╝╚══╝─╚╝' && sleep 0.5
+echo -e ''
+echo -e 'Paloma node auto installer by CoreDov (Boroda Validator) Version 0.2.4' && sleep 3
+echo -e '\n\e[42mUpdating all packages...\e[0m\n' && sleep 1
 sudo apt update && sudo apt upgrade -y
+echo -e '\n\e[42mInstalling Important packages...\e[0m\n' && sleep 1
 apt install jq -y
+apt install tar -y
+apt install source -y
+apt install tee -y 
+apt install sed -y 
 read -p "Enter your node name: " MONIKER
 read -p "Enter your wallet name: " WALLET
 read -p "Enter website that will be displayed on the validator page in the explorer(optional): " WEBSITE
@@ -27,7 +41,7 @@ echo "export NODE=$NODE" >> $HOME/.bash_profile
 echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
-echo -e '\n\e[42mInstalling Binaries\e[0m\n' && sleep 1
+echo -e '\n\e[42mInstalling Binaries...\e[0m\n' && sleep 1
 wget -O - https://github.com/palomachain/paloma/releases/download/v0.2.4-prealpha/paloma_0.2.4-prealpha_Linux_x86_64.tar.gz | \
 sudo tar -C /usr/local/bin -xvzf - palomad
 sudo chmod +x /usr/local/bin/palomad
