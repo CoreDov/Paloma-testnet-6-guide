@@ -17,26 +17,26 @@ read -p "Enter website that will be displayed on the validator page in the explo
 read -p "Enter your 16-digit code from keybase.io for setting avatar of your validator(optional): " IDENTITY
 
 echo -e '\n\e[42mImporting Variables\e[0m\n' && sleep 1
-TIKER=palomad
-CHAIN=paloma-testnet-5
-TOKEN=ugrain
-PROJECT=palomad
-CONFIG=.paloma
-NODE=http://localhost:26657
-GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json
+TIKER=palomad && \
+CHAIN=paloma-testnet-5 && \
+TOKEN=ugrain && \
+PROJECT=palomad && \
+CONFIG=.paloma && \
+NODE=http://localhost:26657 && \
+GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json && \
 
-echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile
-echo "export WALLET=$WALLET" >> $HOME/.bash_profile
-echo "export WEBSITE=$WEBSITE" >> $HOME/.bash_profile
-echo "export IDENTITY=$IDENTITY" >> $HOME/.bash_profile
-echo "export TIKER=$TIKER" >> $HOME/.bash_profile
-echo "export CHAIN=$CHAIN" >> $HOME/.bash_profile
-echo "export TOKEN=$TOKEN" >> $HOME/.bash_profile
-echo "export PROJECT=$PROJECT" >> $HOME/.bash_profile
-echo "export CONFIG=$CONFIG" >> $HOME/.bash_profile
-echo "export NODE=$NODE" >> $HOME/.bash_profile
-echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile
-source $HOME/.bash_profile
+echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile && \
+echo "export WALLET=$WALLET" >> $HOME/.bash_profile && \
+echo "export WEBSITE=$WEBSITE" >> $HOME/.bash_profile && \
+echo "export IDENTITY=$IDENTITY" >> $HOME/.bash_profile && \
+echo "export TIKER=$TIKER" >> $HOME/.bash_profile && \
+echo "export CHAIN=$CHAIN" >> $HOME/.bash_profile && \
+echo "export TOKEN=$TOKEN" >> $HOME/.bash_profile && \
+echo "export PROJECT=$PROJECT" >> $HOME/.bash_profile && \
+echo "export CONFIG=$CONFIG" >> $HOME/.bash_profile && \
+echo "export NODE=$NODE" >> $HOME/.bash_profile && \
+echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
 
 echo -e '\n\e[42mInstalling Binaries...\e[0m\n' && sleep 1
 wget -O - https://github.com/palomachain/paloma/releases/download/v0.2.4-prealpha/paloma_0.2.4-prealpha_Linux_x86_64.tar.gz | \
@@ -53,12 +53,12 @@ echo -e '\n\e[41m//////SAVE MNEMONIC OF YOUR WALLET//////\e[0m\n' && sleep 1
 $TIKER keys add $WALLET
 echo -e '\n\e[41m////////////////////////////////////////\e[0m\n' && sleep 5
 
-VALOPER=$($TIKER keys show $WALLET --bech val -a)
-ADDRESS=$($TIKER keys show $WALLET --address)
-echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile
-echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile
-source $HOME/.bash_profile
-cd $HOME/$CONFIG/config
+VALOPER=$($TIKER keys show $WALLET --bech val -a) && \
+ADDRESS=$($TIKER keys show $WALLET --address) && \
+echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile && \
+echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
+cd $HOME/$CONFIG/config && \
 
 wget -O genesis.json $GENESIS_JSON_PATH
 wget -O addrbook.json https://raw.githubusercontent.com/CoreDov/Paloma-testnet-5-guide/main/Assets/addrbook.json
