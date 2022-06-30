@@ -98,9 +98,9 @@ echo -e "\e[31mIf your variables (Valoper,Wallet address, project name and tiker
 echo -e '\n\e[42mChecking node status...\e[0m\n' && sleep 1
 if [[ `service palomad status | grep active` =~ "running" ]]; then
   echo -e "Your Paloma node \e[32minstalled and works\e[39m!"
-  echo -e "You can check node sync status by the command \e[7curl -s $NODE/status | jq .result.sync_info.catching_up\e[0m"
-  echo -e "You can check node logs by the command \e[7journalctl -u palomad -f -o cat\e[0m"
-  echo -e "You can check node status by the command \e[7service palomad status\e[0m"
+  echo -e "You can check node sync status by the command \e[7 curl -s $NODE/status | jq .result.sync_info.catching_up\e[0m"
+  echo -e "You can check node logs by the command \e[7 journalctl -u palomad -f -o cat\e[0m"
+  echo -e "You can check node status by the command \e[7 service palomad status\e[0m"
   echo -e "Press \e[7mQ\e[0m for exit from status menu"
 else
   echo -e "Your Paloma node \e[31mwas not installed correctly\e[39m, please reinstall."
