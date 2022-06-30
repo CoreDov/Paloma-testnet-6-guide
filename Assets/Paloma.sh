@@ -58,7 +58,7 @@ ADDRESS=$($TIKER keys show $WALLET --address) && \
 echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile && \
 echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile && \
-cd $HOME/$CONFIG/config && \
+cd $HOME/$CONFIG/config
 
 wget -O genesis.json $GENESIS_JSON_PATH
 wget -O addrbook.json https://raw.githubusercontent.com/CoreDov/Paloma-testnet-5-guide/main/Assets/addrbook.json
@@ -105,3 +105,31 @@ if [[ `service palomad status | grep active` =~ "running" ]]; then
 else
   echo -e "Your Paloma node \e[31mwas not installed correctly\e[39m, please reinstall."
 fi
+
+#Dev zone
+
+TIKER=palomad && \
+CHAIN=paloma-testnet-5 && \
+TOKEN=ugrain && \
+PROJECT=palomad && \
+CONFIG=.paloma && \
+NODE=http://localhost:26657 && \
+GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json 
+echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile && \
+echo "export WALLET=$WALLET" >> $HOME/.bash_profile && \
+echo "export WEBSITE=$WEBSITE" >> $HOME/.bash_profile && \
+echo "export IDENTITY=$IDENTITY" >> $HOME/.bash_profile && \
+echo "export TIKER=$TIKER" >> $HOME/.bash_profile && \
+echo "export CHAIN=$CHAIN" >> $HOME/.bash_profile && \
+echo "export TOKEN=$TOKEN" >> $HOME/.bash_profile && \
+echo "export PROJECT=$PROJECT" >> $HOME/.bash_profile && \
+echo "export CONFIG=$CONFIG" >> $HOME/.bash_profile && \
+echo "export NODE=$NODE" >> $HOME/.bash_profile && \
+echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile
+VALOPER=$($TIKER keys show $WALLET --bech val -a) && \
+ADDRESS=$($TIKER keys show $WALLET --address) && \
+echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile && \
+echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
+cd $HOME/$CONFIG/config
