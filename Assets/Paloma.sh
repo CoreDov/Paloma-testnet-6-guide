@@ -85,6 +85,16 @@ sudo systemctl daemon-reload
 sudo systemctl enable $TIKER
 sudo systemctl restart $TIKER
 
+echo -e '\n\e[42mChecking all variables:\e[0m\n' && sleep 1
+echo -e '\n\e[42mValoper:\e[0m\n' && sleep 1
+echo $VALOPER
+echo -e '\n\e[42mWallet address:\e[0m\n' && sleep 1
+echo $ADDRESS
+echo -e '\n\e[42mProject name:\e[0m\n' && sleep 1
+echo $PROJECT
+echo -e '\n\e[42mtiker:\e[0m\n' && sleep 1
+echo $TIKER 
+echo -e "\e[31mIf your variables (Valoper,Wallet address, project name and tiker) was not shown pleade report this issue to developer @CoreDov (telegram) or create issue on github repository\e[39m"
 echo -e '\n\e[42mChecking node status...\e[0m\n' && sleep 1
 if [[ `service palomad status | grep active` =~ "running" ]]; then
   echo -e "Your Paloma node \e[32minstalled and works\e[39m!"
