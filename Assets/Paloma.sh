@@ -5,7 +5,7 @@ echo -e '║║──║║║║║╔╗╔╝║╔══╝║║─║║�
 echo -e '║╚═╗║╚╝║║║║║─║╚══╗║╚═╝║║╚╝║╚╗╔╝' && sleep 0.15
 echo -e '╚══╝╚══╝╚╝╚╝─╚═══╝╚═══╝╚══╝─╚╝' && sleep 0.15
 echo -e ''
-echo -e 'Paloma node auto installer by CoreDov (Boroda Validator) Version 0.2.4' && sleep 3
+echo -e 'Paloma node auto installer by CoreDov (Boroda Validator) Version 0.2.4.f1 (EXPERIMENTAL)' && sleep 3
 echo -e '\n\e[42mUpdating all packages...\e[0m\n' && sleep 1
 sudo apt update && sudo apt upgrade -y
 echo -e '\n\e[42mInstalling Important packages...\e[0m\n' && sleep 1
@@ -23,7 +23,7 @@ TOKEN=ugrain && \
 PROJECT=palomad && \
 CONFIG=.paloma && \
 NODE=http://localhost:26657 && \
-GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json && \
+GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json 
 
 echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile && \
 echo "export WALLET=$WALLET" >> $HOME/.bash_profile && \
@@ -36,7 +36,7 @@ echo "export PROJECT=$PROJECT" >> $HOME/.bash_profile && \
 echo "export CONFIG=$CONFIG" >> $HOME/.bash_profile && \
 echo "export NODE=$NODE" >> $HOME/.bash_profile && \
 echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile && \
-source $HOME/.bash_profile && \
+source $HOME/.bash_profile
 
 echo -e '\n\e[42mInstalling Binaries...\e[0m\n' && sleep 1
 wget -O - https://github.com/palomachain/paloma/releases/download/v0.2.4-prealpha/paloma_0.2.4-prealpha_Linux_x86_64.tar.gz | \
