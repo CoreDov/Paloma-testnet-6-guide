@@ -5,7 +5,7 @@ echo -e '║║──║║║║║╔╗╔╝║╔══╝║║─║║�
 echo -e '║╚═╗║╚╝║║║║║─║╚══╗║╚═╝║║╚╝║╚╗╔╝' && sleep 0.15
 echo -e '╚══╝╚══╝╚╝╚╝─╚═══╝╚═══╝╚══╝─╚╝' && sleep 0.15
 echo -e ''
-echo -e 'Paloma node auto installer by CoreDov (Boroda Validator) Version 0.2.4.f1 (EXPERIMENTAL)' && sleep 3
+echo -e 'Paloma node auto installer by CoreDov (Boroda Validator) Version 0.2.4.f2 (EXPERIMENTAL)' && sleep 3
 echo -e '\n\e[42mUpdating all packages...\e[0m\n' && sleep 1
 sudo apt update && sudo apt upgrade -y
 echo -e '\n\e[42mInstalling Important packages...\e[0m\n' && sleep 1
