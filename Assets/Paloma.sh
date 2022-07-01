@@ -11,32 +11,12 @@ sudo apt update && sudo apt upgrade -y
 echo -e '\n\e[42mInstalling Important packages...\e[0m\n' && sleep 1
 apt install jq -y
 
-read -p "Enter your node name: " MONIKER
-read -p "Enter your wallet name: " WALLET
-read -p "Enter website that will be displayed on the validator page in the explorer(optional): " WEBSITE
-read -p "Enter your 16-digit code from keybase.io for setting avatar of your validator(optional): " IDENTITY
+read -p "Enter your validator name: " VALIDATOR
+echo 'export VALIDATOR='\"${VALIDATOR}\" >> $HOME/.bash_profile
 
 echo -e '\n\e[42mImporting Variables\e[0m\n' && sleep 1
-TIKER=palomad && \
-CHAIN=paloma-testnet-5 && \
-TOKEN=ugrain && \
-PROJECT=palomad && \
-CONFIG=.paloma && \
-NODE=http://localhost:26657 && \
-GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json 
 
-echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile && \
-echo "export WALLET=$WALLET" >> $HOME/.bash_profile && \
-echo "export WEBSITE=$WEBSITE" >> $HOME/.bash_profile && \
-echo "export IDENTITY=$IDENTITY" >> $HOME/.bash_profile && \
-echo "export TIKER=$TIKER" >> $HOME/.bash_profile && \
-echo "export CHAIN=$CHAIN" >> $HOME/.bash_profile && \
-echo "export TOKEN=$TOKEN" >> $HOME/.bash_profile && \
-echo "export PROJECT=$PROJECT" >> $HOME/.bash_profile && \
-echo "export CONFIG=$CONFIG" >> $HOME/.bash_profile && \
-echo "export NODE=$NODE" >> $HOME/.bash_profile && \
-echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile && \
-source $HOME/.bash_profile
+
 
 echo -e '\n\e[42mInstalling Binaries...\e[0m\n' && sleep 1
 wget -O - https://github.com/palomachain/paloma/releases/download/v0.2.4-prealpha/paloma_0.2.4-prealpha_Linux_x86_64.tar.gz | \
@@ -98,9 +78,9 @@ echo -e "\e[31mIf your variables (Valoper,Wallet address, project name and tiker
 echo -e '\n\e[42mChecking node status...\e[0m\n' && sleep 1
 if [[ `service palomad status | grep active` =~ "running" ]]; then
   echo -e "Your Paloma node \e[32minstalled and works\e[39m!"
-  echo -e "You can check node sync status by the command \e[7 ccurl -s $NODE/status | jq .result.sync_info.catching_up\e[0m"
-  echo -e "You can check node logs by the command \e[7 jjournalctl -u palomad -f -o cat\e[0m"
-  echo -e "You can check node status by the command \e[7 sservice palomad status\e[0m"
+  echo -e "You can check node sync status by the command: curl -s $NODE/status | jq .result.sync_info.catching_up"
+  echo -e "You can check node logs by the command: journalctl -u palomad -f -o cat"
+  echo -e "You can check node status by the command: service palomad status"
   echo -e "Press \e[7mQ\e[0m for exit from status menu"
 else
   echo -e "Your Paloma node \e[31mwas not installed correctly\e[39m, please reinstall."
