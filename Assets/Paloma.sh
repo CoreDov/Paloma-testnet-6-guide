@@ -13,6 +13,8 @@ apt install jq -y
 
 read -p "Enter your validator name: " VALIDATOR
 echo 'export VALIDATOR='\"${VALIDATOR}\" >> $HOME/.bash_profile
+echo 'source $HOME/.bashrc' >> $HOME/.bash_profile
+. $HOME/.bash_profile
 
 echo -e '\n\e[42mImporting Variables\e[0m\n' && sleep 1
 
