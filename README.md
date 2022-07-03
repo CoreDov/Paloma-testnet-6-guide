@@ -84,7 +84,7 @@ source $HOME/.bash_profile
 ```shell
 cd $HOME/$CONFIG/config
 wget -O genesis.json $GENESIS_JSON_PATH
-wget -O addrbook.json https://raw.githubusercontent.com/CoreDov/Paloma-testnet-5-guide/main/Assets/addrbook.json
+wget -O addrbook.json https://raw.githubusercontent.com/CoreDov/Paloma-testnet-6-guide/main/Assets/addrbook.json
 ```
 ## Starting node:
 ### Creating and configuring service file:
