@@ -12,11 +12,7 @@ Bandwidth: 1 Gbps for Download/100 Mbps for Upload
 # "One line" instalation(TEMPORARY NOT WORKING DUE VARIABLES EXPORTING ISSUE):
 if you want to install node by one command, you can use it:
 ```shell
-<<<<<<< Updated upstream
 wget -q -O Paloma.sh https://raw.githubusercontent.com/CoreDov/Paloma-testnet-5-guide/Experimental/Assets/Paloma.sh && chmod +x Paloma.sh && sudo /bin/bash Paloma.sh
-=======
-wget -q -O Paloma.sh https://raw.githubusercontent.com/CoreDov/Paloma-testnet-6-guide/main/Assets/Paloma.sh && chmod +x Paloma.sh && sudo /bin/bash Paloma.sh
->>>>>>> Stashed changes
 ```
 When the installation is completed, you can proceed to the stage of creating a validator
 # Manual instalation:
