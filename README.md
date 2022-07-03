@@ -1,4 +1,4 @@
-# Paloma-testnet-5 node instalation guide
+# Paloma-testnet-6 node instalation guide
 ### Hardware requirements:
 
 CPU	4 theads
@@ -12,7 +12,11 @@ Bandwidth: 1 Gbps for Download/100 Mbps for Upload
 # "One line" instalation(TEMPORARY NOT WORKING DUE VARIABLES EXPORTING ISSUE):
 if you want to install node by one command, you can use it:
 ```shell
+<<<<<<< Updated upstream
 wget -q -O Paloma.sh https://raw.githubusercontent.com/CoreDov/Paloma-testnet-5-guide/Experimental/Assets/Paloma.sh && chmod +x Paloma.sh && sudo /bin/bash Paloma.sh
+=======
+wget -q -O Paloma.sh https://raw.githubusercontent.com/CoreDov/Paloma-testnet-6-guide/main/Assets/Paloma.sh && chmod +x Paloma.sh && sudo /bin/bash Paloma.sh
+>>>>>>> Stashed changes
 ```
 When the installation is completed, you can proceed to the stage of creating a validator
 # Manual instalation:
@@ -31,12 +35,12 @@ WEBSITE=(Paste here website that will be displayed on the validator page in the 
 IDENTITY=(Paste here your 16-digit code from keybase.io for setting avatar of your validator(optional))
 # Variables that do not need to be changed
 TIKER=palomad
-CHAIN=paloma-testnet-5
+CHAIN=paloma-testnet-6
 TOKEN=ugrain
 PROJECT=palomad
 CONFIG=.paloma
 NODE=http://localhost:26657
-GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-5/genesis.json
+GENESIS_JSON_PATH=https://raw.githubusercontent.com/palomachain/testnet/master/paloma-testnet-6/genesis.json
 ```
 ### Export all var-s:
 ```shell
@@ -57,7 +61,7 @@ source $HOME/.bash_profile
 ## Building and configuring:
 ### Get binary:
 ```shell
-wget -O - https://github.com/palomachain/paloma/releases/download/v0.2.4-prealpha/paloma_0.2.4-prealpha_Linux_x86_64.tar.gz | \
+wget -O - https://github.com/palomachain/paloma/releases/download/v0.2.5-prealpha/paloma_0.2.5-prealpha_Linux_x86_64.tar.gz | \
 sudo tar -C /usr/local/bin -xvzf - palomad
 sudo chmod +x /usr/local/bin/palomad
 # Required until we figure out of cgo
