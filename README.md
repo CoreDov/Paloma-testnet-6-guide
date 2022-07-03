@@ -107,8 +107,8 @@ EOF
 ```
 ### Configuring persistent peers:
 ```shell
-PEERS="d6ee6c3ccc5d307600fc9d01619b4eae2ad331da@217.79.187.35:26656,98bbed8647e2bd80d169ed7ae04e41e82f24594f@65.21.181.135:36656,b159364b4e6a3036c36ef6c7c690c5fbc81fa9c4@65.108.71.92:54056,3f053da998299894a4574720629780fcafa5875c@138.201.139.175:20456,e4b7cdd48c39c355e9a3480f4f4d5afab8fb0e08@46.0.203.78:26637,983c19423a0c9a4a444d6ccd76a73ecac523b868@78.47.128.136:26656,26f67d710b591bb2b7efd4f339daac56ca5e7e41@194.163.172.204:26656,a25f8bc10d9b3834e2834ac8231152fa862e7160@38.242.242.189:36416,68e4fb7ed3c792a3cf6f8c43d984d23c513b66f4@146.19.24.34:16656"
-sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.paloma/config/config.toml
+PEERS="e0a5a7a9eab2c04ad6cf0c01df7cac74b32c4a72@138.201.139.175:20456,8fb204fbb55695f263867cb5f416cce9bcc5c890@161.97.107.147:46656,1ccf9c42f886dc86fbae888eaee9f08f9ca475a3@95.216.171.152:26656,175ccd9b448390664ea121427aab20138cc8fcec@testnet.palomaswap.com:26656,c8c88afce29bd3f9b68dcbba6acf7100210cdc09@65.21.181.135:36656"
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.paloma/config/config.toml
 ```
 ### Starting service:
 ```shell
