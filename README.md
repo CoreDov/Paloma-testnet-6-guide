@@ -9,12 +9,6 @@ Storage	SSD 200GB
 
 Bandwidth: 1 Gbps for Download/100 Mbps for Upload
 
-# "One line" instalation(TEMPORARY NOT WORKING DUE VARIABLES EXPORTING ISSUE):
-if you want to install node by one command, you can use it:
-```shell
-wget -q -O Paloma.sh https://raw.githubusercontent.com/CoreDov/Paloma-testnet-6-guide/Experimental/Assets/Paloma.sh && chmod +x Paloma.sh && sudo /bin/bash Paloma.sh
-```
-When the installation is completed, you can proceed to the stage of creating a validator
 # Manual instalation:
 ## Preparing ot instalation:
 ### update all packages:
@@ -162,7 +156,7 @@ if the tokens came to your wallet, then you can proceed to the next step
 ### Creating validator:
 To create a validator, you need to run this command:
 ```shell
-$TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$ADDRESS --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS --node "tcp://testnet.palomaswap.com:26657" -y
+$TIKER tx staking create-validator --amount=950000$TOKEN --pubkey=$($TIKER tendermint show-validator) --moniker=$MONIKER --chain-id=$CHAIN --commission-rate="0.10" --commission-max-rate="0.20" --commission-max-change-rate="0.01" --min-self-delegation="1" --fees=250$TOKEN --gas=200000 --from=$ADDRESS --identity=$IDENTITY --website=$WEBSITE --details=$DETAILS -y
 ```
 # Useful commands:
 ### Check logs:
