@@ -105,10 +105,8 @@ LimitNOFILE=65535
 WantedBy=multi-user.target
 EOF
 ```
-### Configuring persistent peers:
+### Configuring persistent peers (SKIP IT):
 ```shell
-PEERS="e0a5a7a9eab2c04ad6cf0c01df7cac74b32c4a72@138.201.139.175:20456,8fb204fbb55695f263867cb5f416cce9bcc5c890@161.97.107.147:46656,1ccf9c42f886dc86fbae888eaee9f08f9ca475a3@95.216.171.152:26656,175ccd9b448390664ea121427aab20138cc8fcec@testnet.palomaswap.com:26656,c8c88afce29bd3f9b68dcbba6acf7100210cdc09@65.21.181.135:36656"
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.paloma/config/config.toml
 ```
 ### Starting service:
 ```shell
